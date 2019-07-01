@@ -1,0 +1,33 @@
+<html>
+<head>
+<style type="text/css">
+#tbl-bdr table,#tbl-bdr td,#tbl-bdr th {
+    border-collapse: collapse;
+    border:1px solid #333;
+    }
+</style>
+</head>
+<body>
+<h1>There are {{wordcount}} words in your text</h1>
+
+<a href="{% url 'home' %}">Go Back</a>
+
+<h1> Original </h1>
+<p>
+{{ fulltext }} 
+</p>
+
+<h1> Word Count </h1>
+<p>
+<div id="tbl-bdr">
+<table width="30%">
+{% for word, countvalue in wordlistdic %}
+<tr>
+<td> {{ word }}</td>
+<td> {{ countvalue }} </td>
+</tr>
+{% endfor %}
+</table>
+</p>
+</body>
+</html>
